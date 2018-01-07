@@ -4,11 +4,13 @@
 
 [Mackdown help](https://www.appinn.com/markdown/#html)
 
-[Mackdown Study](/mdhelp.md)
+[Mackdown Study](/other/mdhelp.md)
 
-[Groovy学习笔记1](/groovy笔记/Groovy学习笔记1.md)
+[Git pre-commit总结](/other/gitpre_commit.md)
 
-[Groovy学习笔记2](/groovy笔记/Groovy学习笔记2.md)
+[Groovy学习笔记1](/groovy_study/Groovy学习笔记1.md)
+
+[Groovy学习笔记2](/groovy_study/Groovy学习笔记2.md)
 
 
 
