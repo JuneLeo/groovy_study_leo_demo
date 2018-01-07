@@ -4,9 +4,9 @@
 
 [Mackdown help](https://www.appinn.com/markdown/#html)
 
-[Mackdown Study](/other/mdhelp.md)
+[Mackdown Study](/other/md_help.md)
 
-[Git pre-commit总结](/other/gitpre_commit.md)
+[Git pre-commit总结](/other/git_pre_commit.md)
 
 [Groovy学习笔记1](/groovy_study/Groovy学习笔记1.md)
 
