@@ -1,0 +1,174 @@
+apply from: file('children.gradle')
+apply plugin: 'java'
+//Gradle的构建生命周期分为三部分，初始化、配置和执行阶段。
+//在执行阶段，任务按照他们的依赖顺序按序执行，
+//在配置阶段所有的任务都转换成Gradle的内部对象模型，通常叫做有向无环图(DAG)。
+//图的节点就是构建脚本里的任务，任务与任务之间可以定义依赖关系。
+//初始化阶段是Gradle用来找出哪些项目会参与到项目构建中，这在多项目构建中很重要。
+
+//===============================================================================
+// 初始化 配置 执行       gradle -b leo.gradle leo
+//===================
+//初始化任务（一）
+task leo   //任务名
+
+//执行任务（三）
+leo << {
+    println('leo 执行1')
+}
+
+leo << {
+    println("leo 执行2")
+}
+//配置任务（二）  配置块 是 用来放置变量和数据结构的地方
+leo {
+    println("leo 配置")   //闭包，而不是任务动作
+    //配置块 在Gradle的构建生命周期里配置阶段是在执行阶段前运行的，所以这个块里的代码最先执行了
+}
+
+leo {
+    println(" leo 继续配置") //配置闭包也具有可加性
+}
+
+//================================================================================
+// DefaultTask的方法
+
+//======================
+//dependsOn     添加一个依赖的任务 方式    gradle -b leo.gradle leo
+//======================
+
+// leo.dependsOn children                   //(一) 显式调用
+
+// task leo(dependsOn:children)             //(二) 快捷调用。 task world(dependsOn: [ compileTestClasses, createSchema ])
+
+leo {
+    // dependsOn children                   //(三)   dependsOn compileTestClasses, createSchema
+    // dependsOn << children                //(四)
+    // dependsOn 'children'                 //(五)
+}
+
+//=====================
+//doFirst / doLast         gradle -b leo.gradle leo
+//======================
+
+//#在任务的最开始添加一个可执行的代码块，doFirst方法允许你添加动作到现有的任务中，
+//这个任务是在其他插件中定义的，你没有办法修改，但是你可以多次调用doFirst方法在任务执行之前添加一些代码块。
+
+//doFirst也是  可加的
+
+// leo.doFirst{
+// 	println('leo这个先执行')
+// }
+
+leo {
+    doLast {
+        println("leo最后执行")
+    }
+}
+
+leo {
+    doFirst {
+        println('leo先执行')
+    }
+}
+
+//==================
+// onlyIf    gradle -Dload.data='true' -b leo.gradle leo
+//==================
+
+//onlyIf方法用于决定是否执行一个任务，这里使用闭包返回的值来作为onlyIf的判断依据，
+//在Groovy语言中，一个闭包的最后一个表达式用来作为这个闭包的返回值，即使你没有声明return语句
+
+// leo.onlyIf{
+// 	println('leo先于doFirst执行')
+// 	System.properties['load.data'] == 'true'   
+// }
+
+//================
+// enabled   gradle -b leo.gradle leo
+//================
+
+//一个用来设置任务是否会执行的一个属性，你可以设置enabled为false不让它运行，但是它依赖的任务依然会运行
+// leo.enabled = false  //不会执行，但会初始化和配置
+
+//================
+//path
+//================
+
+//一个字符串属性包含任务的全限定路径名，默认是一个冒号加上任务名
+
+leo << {
+    println("path is ${path}")
+}
+
+//=================
+//description
+//================
+
+//给一个任务添加一段容易阅读的描述
+
+leo.description = "这是一个leo描述"
+
+leo {
+    description = "这是一个leo描述"
+}
+
+//===============================================================================
+// apply plugin:'java'
+//====================
+// leo<<{
+// 	int a =1;
+// 	int b =2;
+// 	int c = a+b;
+// 	println('a+b:'+c)
+// }
+
+//================================================================================
+//任务类型
+
+//=============
+//Copy
+//=============
+
+task copyFiles(type: Copy) {
+    from 'a'
+    into 'b'
+    include '**/*.txt'
+}
+
+
+task customJar(type: Jar) {
+    manifest {
+//设置一些属性值(以键值对的形式)
+        attributes firstKey: 'firstValue', secondKey: 'secondValue'
+    }
+//文件名
+    archiveName = 'hello.jar'
+//目标路径
+    println(buildDir)
+    destinationDir = file("${buildDir}/jars")//file方法用于把一个字符串变成文件对象
+//要打包的文件
+    from sourceSets.main.class
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

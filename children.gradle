@@ -1,0 +1,11 @@
+task children{
+	println("children初始化和配置")
+}
+
+
+children<<{
+	println("children 执行")
+}
+
+
+

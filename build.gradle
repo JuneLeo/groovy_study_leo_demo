@@ -1,0 +1,87 @@
+group 'com.meituan.groovy'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+////===============
+//// Jar 任务类型
+////================
+//task customJar(type: Jar) {
+//    manifest {
+////设置一些属性值(以键值对的形式)
+//        attributes firstKey: 'firstValue', secondKey: 'secondValue'
+//    }
+////文件名
+//    archiveName = 'hello.jar'
+////目标路径
+//    destinationDir = file("${buildDir}/jars")//file方法用于把一个字符串变成文件对象
+//    println(buildDir)
+////要打包的文件
+//    from sourceSets.main.allJava   //输入main里面所有的java文件
+//
+//}
+//
+//
+//
+//task meituan
+//meituan() {
+//    println("meituan")
+//}
+//task demo(type:Copy,dependsOn: meituan) {
+//    println("demo")
+//}
+//
+////======================================================================================================================
+//task createDatabase(type: MySqlTask) {
+//    sql = 'CREATE DATABASE IF NOT EXISTS example'
+//}
+//
+//task createUser(type: MySqlTask, dependsOn: createDatabase) {
+//    sql = "GRANT ALL PRIVILEGES ON example.*TO exampleuser@localhost IDENTIFIED BY 'passw0rd'"
+//}
+//
+//task createTable(type: MySqlTask, dependsOn: createUser) {
+//    username = 'exampleuser'
+//    password = 'passw0rd'
+//    database = 'example'
+//    sql = 'CREATE TABLE IF NOT EXISTS users (id BIGINT PRIMARY KEY, username VARCHAR(100))'
+//}
+//
+//class MySqlTask extends DefaultTask {
+//    //声明任务的属性
+//    def hostname = 'localhost'
+//    def port = 3306
+//    def sql
+//    def database
+//    def username = 'root'
+//    def password = 'password'
+//
+////表示这是任务的动作
+//    @TaskAction
+//    def runQuery() {
+//        def cmd
+//        if(database) {
+//            cmd = "mysql -u ${username} -p${password} -h 	${hostname}-P ${port} ${database} -e "
+//        }
+//        else {
+//            cmd = "mysql -u ${username} -p${password} -h ${hostname} -P ${port} -e "
+//        }
+//        project.exec {
+//            commandLine = cmd.split().toList() + sql
+//        }
+//    }
+//}
+//
+//
