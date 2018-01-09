@@ -1,9 +1,10 @@
-#Git 提交格式
-###目的
+# Git提交格式
+
+### 目的
 * 在一些大厂多人开发的项目中，为了统一管理提交信息，以及为了以后爬取数据的方便，我们应该对提交的commit message进行格式统一。
 * git commit message 的创建方式，下面我们给出了两种方式创建
 
-###方式
+### 方式
 * 方式一：固定模版
 
   * 创建commit message template， 在根目录下创建.git_common_commit_template,
@@ -57,9 +58,9 @@
         echo "cause:" >> ~/.gitmessage
          
         echo "solution:done" >> ~/.gitmessage
-        chmod +x .git/hooks/pre-commit 
+         
         ``` 
     * 切记：我们应该给 pre—commit配置权限,否则无法将无法执行pre-commit     <br />
       ```shell
-        chmod 777 .git/hooks/pre-commit
+        chmod 777 .git/hooks/pre-commit  (chmod +x .git/hooks/pre-commit)
       ```

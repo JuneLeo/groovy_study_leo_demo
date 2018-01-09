@@ -1,2 +1,13 @@
 rootProject.name = 'leo'
+println("I am settings.gradle")
+
+println(gradle.gradleHomeDir.name+","+gradle.gradleHomeDir.path+","+gradle.gradleHomeDir.parent)
+
+println(gradle.gradleUserHomeDir.name+","+gradle.gradleUserHomeDir.path+","+gradle.gradleUserHomeDir.parent)
+
+println(gradle.gradleVersion)
+
+println(rootDir.name+","+rootDir.path+","+rootDir.parent)
+
+println(rootProject.name+","+rootProject.path)
 

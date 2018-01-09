@@ -1,5 +1,9 @@
 package com.meituan.leo
 
+import groovy.util.slurpersupport.GPathResult
+import groovy.util.slurpersupport.Node
+import groovy.util.slurpersupport.NodeChildren
+
 ////查看list each 源码，发现正常写法为下面这样写的
 //def list = [1, 2, 3, 4, 5]
 //
@@ -47,15 +51,96 @@ package com.meituan.leo
 
 //println("------------------------------------------------------")
 // groovy io 操作
-def file = new File("/Users/leo/java/gradle-study-leo-demo/a/leo.txt")
 
-file.eachLine {
-    String content ->
-        println content
-}
+//读文件
+//def file = new File("/Users/leo/java/groovy_study_leo_demo/a/leo.txt")
+//println(file.getAbsoluteFile())
+//try{
+//    file.eachLine {  //有兴趣的可以查看源码，使用了while循环进行了读取
+//    String content ->
+//        println content
+//    }
+//
+//    def bytes = file.getBytes()
+//    String content = new String(bytes)
+//    println(content)
+//
+//    def inputStream = file.newInputStream()
+//    inputStream.eachLine {
+//        String oneLine ->
+//            println(oneLine)
+//    }
+//    inputStream.close()
+//
+//    println("------------------------------------------------------")
+//
+//    file.withInputStream {
+//        ism ->
+//            ism.eachLine {
+//                String oneLine ->
+//                    println(oneLine)
+//            }
+//    }
+//}catch (FileNotFoundException e){
+//    e.printStackTrace()
+//}
 
-def bytes = file.getBytes()
-String content = new String(bytes)
-println(content)
+////写文件
+//def file = new File("/Users/leo/java/groovy_study_leo_demo/a/write.txt")
+//
+//
+//try {
+//    def stream = file.newOutputStream()
+//    String content = "leo"
+//    stream.write(content.getBytes())
+//    stream.close()
+//
+//    stream.withWriter {
+//        writer->
+//            writer.write(content)
+//    }
+//    file.withWriter {
+//        writer->
+//            writer.write("宋鹏飞")
+//    }
+//    file.withOutputStream {
+//        os->
+//            os.withWriter {
+//                writer->
+//                    writer.write("leo，hello")
+//            }
+//    }
+//
+//} catch (FileNotFoundException e) {
+//    e.printStackTrace()
+//}
+
+//xml操作
+
+//def xml = new XmlSlurper()
+//def file = new File("/Users/leo/java/groovy_study_leo_demo/src/main/resources/leo.xml")
+//GPathResult pathResult = xml.parse(file)
+//def name = pathResult.books.book[1].name
+//println(name)
+
+
+//Gradle中，每一个待编译的工程都叫一个Project。每一个Project在构建的时候都包含一系列的Task。比如一个Android APK的编译可能包含：Java源码编译Task、资源编译Task、JNI编译Task、lint检查Task、打包生成APK的Task、签名Task等。
+//一个Project到底包含多少个Task，其实是由编译脚本指定的插件决定。插件是什么呢？插件就是用来定义Task，并具体执行这些Task的东西。
+//gradle projects 查看项目下有几个子project
+//gradle task 查看项目下任务
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

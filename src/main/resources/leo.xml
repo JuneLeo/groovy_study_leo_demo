@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resource>
+    <books>
+        <book>
+            <name>leo自传1</name>
+            <price>100.5</price>
+        </book>
+        <book>
+            <name>leo自传2</name>
+            <price>110.5</price>
+        </book>
+        <book>
+            <name>leo自传3</name>
+            <price>101.5</price>
+        </book>
+        <book>
+            <name>leo自传4</name>
+            <price>111.5</price>
+        </book>
+    </books>
+</resource>
