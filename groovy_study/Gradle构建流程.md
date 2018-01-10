@@ -218,7 +218,7 @@
             }
     ```
     构建变体生效图（构建类型和产品风味结合）  <br />
-    <img src="../image/git_log.jpg" alt="" width="400"/>
+    <img src="../image/gradle_build.png" alt="" width="400"/>
 #### 源集配置更改
 * 如果我们的源集未组织到gradle期望的源集目录下
     ```groovy
