@@ -6,7 +6,7 @@
 
 [Mackdown Study](/other/md_help.md)
 
-[Git 你真的会了么](/other/git_help.md)
+[Git 你真的会了么](/other/Git%20基础学习.md)
 
 [Git pre-commit总结](/other/git_pre_commit.md)
 

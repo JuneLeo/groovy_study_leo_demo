@@ -148,4 +148,58 @@
   * 提醒：对于一些本地修改后的文件，我们每次都需要依赖修改多的文件，但又不能提到服务器的文件，我们应该是将文件移出暂存区
 * 远程仓库
   * git remote  origin - 这是 Git 给你克隆的仓库服
-  *      
+    ```shell
+    git remote -v  //命令
+    //信息
+    origin  https://github.com/JuneLeo/groovy_study_leo_demo.git (fetch)
+    origin  https://github.com/JuneLeo/groovy_study_leo_demo.git (push)
+    
+    ```
+  * git remote add origin https://github.com/JuneLeo/groovy_study_leo_demo.git  添加一个新的远程仓库名
+    * 我们可以尝试创建两个不同的仓库来操作
+  * git fetch [remote-name] 从远程仓库拉取
+  * 查看远程仓库信息     git remote show origin  
+    ```shell
+        git remote show origin
+        //
+        * remote origin
+          Fetch URL: https://github.com/JuneLeo/groovy_study_leo_demo.git
+          Push  URL: https://github.com/JuneLeo/groovy_study_leo_demo.git
+          HEAD branch: master
+          Remote branches:
+            dev    tracked
+            master tracked
+          Local refs configured for 'git push':
+            dev    pushes to dev    (up to date)
+            master pushes to master (up to date)
+
+    ```
+  * 远程仓库的移除与重命名
+    * 方式一：vim .git/config
+    * 方式二：
+    ```shell
+        git remote rename leo hero  //将leo仓库重命名为hero
+        git remote rm hero   //移除hero 
+    ```  
+* 打标签
+  * 列出标签  git tag   git tag -l "v1.1"
+  * 创建标签 
+    * 附注标签   git tag -a v1.0 -m "leo,git study,version 1.0"
+    * 轻量级标签   git tag v1.0
+  * 查看标签  git show v1.0 
+  * 后期打标签   git tag -a v0.1 8ca5252b9db155cb2976654ed23310a10a2b3a70 -m "git" 
+  * 共享标签  git push origin --tags
+  * 删除标签  git tag -d v1.0
+  * checkout 标签   git checkout -b v1.0 v1.0
+* git别名      <br />
+  * 方式一： vim打开配置更改
+  ```shell
+    vim .gitconfig
+     
+     ...
+     
+    [alias]
+            co = checkout
+    ```
+  * 方式二：git config --global alias.co checkout
+  
