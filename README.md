@@ -6,9 +6,9 @@
 
 [Mackdown Study](/other/md_help.md)
 
-[Git 你真的会了么](/other/Git%20基础学习.md)
+[Git 基础](/git/Git基础学习.md)
 
-[Git pre-commit总结](/other/git_pre_commit.md)
+[Git pre-commit总结](/git/git_pre_commit.md)
 
 [Groovy学习笔记1](/groovy_study/Groovy学习笔记1.md)
 
