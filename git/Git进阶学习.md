@@ -73,6 +73,51 @@
   Successfully rebased and updated refs/heads/dev.
   
   ```
-* 合并提交请求    
+* 合并提交请求  
+  ```shell
   
- 
+  $ git rebase -i HEAD~4  //命令
+    //vim编辑
+    pick 93de45e branch:dev cause:变基准备1 solution:done 
+    s 83b8a59 branch:dev cause:变基准备2 solution:done       //变为s
+    s 3d507f6 branch:dev cause:变基准备3 solution:done       // 变为s
+    squash bd1811a branch:dev cause:合并准备4 solution:done  //变为s
+  
+    //vim编辑
+    # This is the 1st commit message:
+  
+    branch:dev
+    cause:合并了commit
+    solution:done
+  
+    # This is the commit message #2:
+  
+    #branch:dev
+    #cause:变基准备2
+    #solution:done
+  
+    # This is the commit message #3:
+  
+    #branch:dev
+    #cause:变基准备3
+    #solution:done
+  
+  
+    Successfully rebased and updated refs/heads/dev.
+  $ git log
+    // 查看log 得到   commit 93de45e 变为了  1ef5767
+    commit 1ef57674de3ad385266a9b1aa803e7613b895649 (HEAD -> dev)
+    Author: leo <357730030@qq.com>
+    Date:   Thu Jan 11 19:11:23 2018 +0800
+  
+      branch:dev
+      cause:合并了commit
+      solution:done
+  
+  
+  ```  
+* 三棵树
+  * working directory  工作区  从HEAD checkout 代码  git checkout 
+  * Index    stage File  暂存区         //git add 
+  * HEAD   将Index区的代码提交到HEAD    //git commit
+  
