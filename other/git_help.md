@@ -131,14 +131,21 @@
   * git log --pretty=oneline/short/full/fuller
   * git log --pretty=format [地址](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2)
   * 更多请参看上面的地址   --pretty 可以用于筛选
-* 撤销操作
+* 撤销操作  
   * amend  //提交新的东西，将最后一条commit覆盖
     ```shell
     git add .
     git commit --amend
     ```
-  * 取消暂存的文件
+  * 取消暂存的文件     //在暂存区的时候
     ```shell
-    git reset HEAD b/file_from.txt
+    git reset HEAD b/file_from.txt  //移除暂存区
     ```           
-  
+  * 撤销对文件的修改   //不在暂存区的时候
+    ```shell
+    git checkout -- b/file_from.txt // 直接恢复修改记录   
+    ```
+  * 提醒：对于一些本地修改后的文件，我们每次都需要依赖修改多的文件，但又不能提到服务器的文件，我们应该是将文件移出暂存区
+* 远程仓库
+  * git remote  origin - 这是 Git 给你克隆的仓库服
+  *      
