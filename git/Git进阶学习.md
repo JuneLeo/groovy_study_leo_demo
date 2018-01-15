@@ -25,6 +25,11 @@
            git stash clear
            git stash create [<message>]
            git stash store [-m|--message <message>] [-q|--quiet] <commit>
+           //教你用
+           git status 
+           //
+           
+           
 
     ```
 ### Git 搜索工具

@@ -18,7 +18,9 @@
 
 [Groovy学习笔记2](/groovy_study/Groovy学习笔记2.md)
 
-[Groovy 构建流程](/groovy_study/Gradle构建流程.md)
+[Gradle 构建流程](/groovy_study/Gradle构建流程.md)
+
+[.gradle 目录结构](/groovy_study/gradle文件目录.md)
 
 
 
